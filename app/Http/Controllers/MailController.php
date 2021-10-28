@@ -47,7 +47,7 @@ class MailController extends Controller
 
             return response()->json(['status' => true, 'message' => 'success send email']);
         } catch (\Exception $e) {
-            return response()->json(['status' => false, 'message' => 'oops something went wrong']);
+            return response()->json(['status' => false, 'message' => 'oops something went wrong' . $e->getMessage()]);
         }
     }
 }
