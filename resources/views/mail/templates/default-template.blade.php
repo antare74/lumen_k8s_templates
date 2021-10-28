@@ -21,7 +21,7 @@
                                     {{ strtoupper($mailData['platform_name']) }}
                                 </a>
                             </td>
-                            <td align="right"><h6 class="collapse">{{ $mailData['title'] ? $mailData['title'] : 'INFORMATION' }}</h6></td>
+                            <td align="right"><h6 class="collapse">{{ isset($mailData['title']) ? $mailData['title'] : 'INFORMATION' }}</h6></td>
                         </tr>
                     </table>
                 </div>
