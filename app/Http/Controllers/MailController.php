@@ -23,7 +23,8 @@ class MailController extends Controller
                 'platform_name.required' => 'platform name is required!',
                 'recipient_mail.required' => 'recipient name is required!',
                 'recipient_name.required' => 'recipient name is required!',
-                'subject.required' => 'subject is required'
+                'subject.required' => 'subject is required',
+                'message.required' => 'message is required'
             ]);
 
             if ($validator->fails()) {
@@ -47,7 +48,7 @@ class MailController extends Controller
 
             return response()->json(['status' => true, 'message' => 'success send email']);
         } catch (\Exception $e) {
-            return response()->json(['status' => false, 'message' => 'oops something went wrong' . $e->getMessage()]);
+            return response()->json(['status' => false, 'message' => 'oops something went wrong']);
         }
     }
 }
