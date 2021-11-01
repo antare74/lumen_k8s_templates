@@ -20,7 +20,7 @@ class PlatformController extends Controller
         }
     }
 
-    public function addPlatform(Request $request)
+    public function create(Request $request)
     {
         try {
             $validator = Validator::make($request->all(), [
@@ -63,5 +63,10 @@ class PlatformController extends Controller
         } catch (\Exception $e) {
             return response()->json(['status' => false, 'message' => 'Oops something went wrong!']);
         }
+    }
+
+    public function update(Request $request, $platform)
+    {
+
     }
 }

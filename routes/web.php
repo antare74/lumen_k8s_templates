@@ -6,12 +6,17 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'platform', 'as' => 'platform'], function () use ($router) {
+$router->group(['prefix' => 'platforms', 'as' => 'platform'], function () use ($router) {
     $router->get('/', [
         'as' => 'index', 'uses' => 'PlatformController@index'
     ]);
-    $router->post('add', [
-        'as' => 'add', 'uses' => 'PlatformController@addPlatform'
+
+    $router->post('/', [
+        'as' => 'create', 'uses' => 'PlatformController@create'
+    ]);
+
+    $router->put('/{platform}', [
+        'as' => 'update', 'uses' => 'PlatformController@update'
     ]);
 });
 
