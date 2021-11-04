@@ -32,9 +32,5 @@ class DefaultMail extends Mailable
         $defaultMail->view('mail.contents.default-mail', compact('mailData', 'platformData'));
 
         return $defaultMail;
-//        return $this->from('sales@importir.org')
-//                    ->subject($mailData['subject'])
-//                    if () {}
-//                    ->view('mail.contents.default-mail', compact('mailData', 'platformData'));
     }
 }
