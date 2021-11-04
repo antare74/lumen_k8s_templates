@@ -5,9 +5,10 @@
         <tr>
             <td>
                 <h4>Hi {{ $mailData['recipient_name'] }}</h4>
-                <p class="callout">
+
+                <div class="callout">
                     {!! $mailData['message'] !!}
-                </p>
+                </div>
             </td>
         </tr>
     </table>
