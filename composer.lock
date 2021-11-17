@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70f7221601997d53ef835b2e286add42",
+    "content-hash": "b2bf9d89a1ec66ad617bbadd433db666",
     "packages": [
         {
             "name": "brick/math",
@@ -6116,6 +6116,50 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "woopra/woopra",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Woopra/woopra-php-sdk.git",
+                "reference": "772fd8825c236f30ea6536c5d24c7bf46385d78c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Woopra/woopra-php-sdk/zipball/772fd8825c236f30ea6536c5d24c7bf46385d78c",
+                "reference": "772fd8825c236f30ea6536c5d24c7bf46385d78c",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "woopra_tracker.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Antoine Chkaiban",
+                    "email": "antoine.chkaiban@student.ecp.fr"
+                },
+                {
+                    "name": "Billy Vong",
+                    "email": "billy@woopra.com"
+                }
+            ],
+            "description": "Woopra.com PHP Library",
+            "homepage": "https://github.com/Woopra/woopra-php-sdk",
+            "keywords": [
+                "analytics",
+                "woopra"
+            ],
+            "support": {
+                "issues": "https://github.com/Woopra/woopra-php-sdk/issues",
+                "source": "https://github.com/Woopra/woopra-php-sdk/tree/master"
+            },
+            "time": "2021-09-03T08:58:27+00:00"
         }
     ],
     "packages-dev": [
@@ -8267,7 +8311,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "woopra/woopra": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

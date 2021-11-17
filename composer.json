@@ -9,7 +9,8 @@
         "guzzlehttp/guzzle": "^7.0",
         "illuminate/mail": "^8.65",
         "laravel/lumen-framework": "^8.0",
-        "league/flysystem": " ~1.0"
+        "league/flysystem": " ~1.0",
+        "woopra/woopra": "dev-master"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

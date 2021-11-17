@@ -3,7 +3,7 @@
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return "Platform is running...";
 });
 
 $router->group(['prefix' => 'platforms', 'as' => 'platform'], function () use ($router) {
