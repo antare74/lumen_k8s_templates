@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services\Woopra;
 
-use Illuminate\Http\Request;
-use App\Services\Woopra\Woopra;
 use Illuminate\Support\Facades\Validator;
+use WoopraTracker;
 
-class WoopraController extends Controller
+class Woopra extends Validation
 {
-    public function eventList(Request $request)
-    {
-        return response()->json(config('woopra-event-list'));
-    }
-
-    public function general(Request $request)
-    {
+    public function generalEvent($params = []) {
         try {
-            $validator = Validator::make($request->all(), [
+            $arrayAndNotEmpty = $this->arrayAndNotEmpty($params);
+            if (!$arrayAndNotEmpty['status']) {
+                return $arrayAndNotEmpty;
+            }
+
+            $validator = Validator::make($params, [
                 'domain' => 'required',
                 'user_name' => 'required',
                 'user_email' => 'required|email',
@@ -35,14 +33,21 @@ class WoopraController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return response()->json(['status' => false, 'message' => $validator->errors()->all()]);
+                return message($validator->errors()->all());
             }
 
-            $woopraEventGeneral = (new Woopra())->generalEvent($request->all());
+            $woopra = new WoopraTracker(['domain' => $params['domain']]);
+            $woopra->config(['ping' => false]);
+            $woopra->identify([
+                'name' => $params['user_name'],
+                'email' => $params['user_email'],
+                'phone' => $params['user_phone']
+            ]);
+            $woopra->track($params['event_name'], $params['event_data'],TRUE);
 
-            return response()->json($woopraEventGeneral);
+            return message('Event tracked to woopra', true);
         } catch (\Exception $e) {
-            return response()->json(['status' => false, 'message' => 'Err exception : failed to process track woopra general event']);
+            return message('Err Exception : failed to process generalEvent method');
         }
     }
 }
