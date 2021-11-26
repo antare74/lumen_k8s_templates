@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: lumen-service
+  namespace: lumen-apps
+  labels:
+    app.kubernetes.io/name: lumen-third-party-apps  
+  annotations:
+    notes: "aplikasi inin dibuat untuk menampung service yang ada dengan framework lumen"
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 31000
+  selector:
+    app.kubernetes.io/name: lumen-third-party-apps
+  type: LoadBalancer
