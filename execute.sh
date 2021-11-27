@@ -34,7 +34,7 @@ do
 			kubectl get namespaces;
 			kubectl get pods --all-namespaces;
 			kubectl get services --all-namespaces;
-			kubectl get configmaps -n --all-namespaces;
+			kubectl get configmaps --all-namespaces;
 		break
 		;;
 		*)
