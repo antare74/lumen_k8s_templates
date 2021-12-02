@@ -2,9 +2,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: sv-lumen-service
-  # namespace: ns-lumen-apps
+  namespace: ns-lumen-apps
   labels:
-    app.kubernetes.io/name: sv-lumen-service
+    app.kubernetes.io/name: lb-lumen-service
   annotations:
     notes: "this is k8s sample configuration for lumen apps"
 spec:
@@ -17,8 +17,8 @@ spec:
     - name: https
       protocol: TCP
       port: 443
-      targetPort: 443
+      targetPort: 80
       nodePort: 31000
   selector:
-    app.kubernetes.io/name: sv-lumen-service
+    app.kubernetes.io/name: lb-lumen-service
   type: LoadBalancer

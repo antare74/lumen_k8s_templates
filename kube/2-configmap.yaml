@@ -2,15 +2,15 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: env-lumen-service
-  # namespace: ns-lumen-apps
+  namespace: ns-lumen-apps
 data:
-  APP_NAME: ""
+  APP_NAME: "lumen"
   APP_ENV: ""
   APP_KEY: ""
-  APP_DEBUG: "true"
   APP_URL: ""
-  APP_TIMEZONE: UTC
-  CACHE_DRIVER: file
-  QUEUE_CONNECTION: sync
+  APP_DEBUG: "f"
+  APP_TIMEZONE: "UTC"
+  CACHE_DRIVER: "file"
+  QUEUE_CONNECTION: "file"
   MAIL_USERNAME: ""
   MAIL_PASSWORD: ""

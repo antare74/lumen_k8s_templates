@@ -8,7 +8,7 @@ spec:
   tls:
     - hosts:
         - k8s.example.com
-      secretName: example-secret
+      secretName: importir-tls
   rules:
     - host: k8s.example.com
       http:
@@ -17,6 +17,6 @@ spec:
           path: "/"
           backend:
             service:
-              name  : k8s.example.com
+              name  : sv-lumen-service
               port:
                 number: 80
