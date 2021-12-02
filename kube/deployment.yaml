@@ -2,24 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/name: lumen-third-party-apps
-  name: lumen-third-party
-  namespace: lumen-apps
+    app.kubernetes.io/name: dp-lumen-service
+  name: dp-lumen-service
+  # namespace: ns-lumen-apps
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app.kubernetes.io/name: lumen-third-party-apps
+      app.kubernetes.io/name: dp-lumen-service
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: lumen-third-party-apps
+        app.kubernetes.io/name: dp-lumen-service
     spec:
       containers:
-        - name: lumen-testing
-          image: "antar373/lumen-k8s"
+        - name: ct-lumen-service
+          image: "uname/yourimages:tag"
           ports:
             - containerPort: 80
+          imagePullPolicy: Always
           resources:
             limits:
               memory: 512Mi
@@ -29,6 +30,6 @@ spec:
               cpu: "0.1"
           envFrom:
             - configMapRef:
-                name: env-lumen-third-party
+                name: env-lumen-service
       imagePullSecrets:
-        - name: regcred
+        - name: cred-test

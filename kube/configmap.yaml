@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: env-lumen-third-party
-  namespace: lumen-apps
+  name: env-lumen-service
+  # namespace: ns-lumen-apps
 data:
   APP_NAME: ""
   APP_ENV: ""
